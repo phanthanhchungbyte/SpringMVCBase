@@ -12,7 +12,7 @@
     <!--  Datasource  -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/Testing" />
+        <property name="url" value="jdbc:mysql://localhost:3306/ojtjob" />
         <property name="username" value="root" />
         <property name="password" value="hansniemann@GOAT" />
     </bean>
@@ -23,11 +23,12 @@
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
         </property>
+        <property name="persistenceUnitName" value="myPersistenceUnit"/>
         <property name="jpaProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
             </props>
         </property>
     </bean>
