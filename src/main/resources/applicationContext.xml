@@ -12,21 +12,4 @@
         <property name="username" value="root" />
         <property name="password" value="hansniemann@GOAT" />
     </bean>
-
-    <!--  Hibernate properties  -->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="mappingResources">
-            <list>
-                <value>AllMapping.hbm.xml</value>
-            </list>
-        </property>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
-            </props>
-        </property>
-    </bean>
 </beans>

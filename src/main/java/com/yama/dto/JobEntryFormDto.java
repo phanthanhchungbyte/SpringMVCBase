@@ -1,19 +1,17 @@
-package com.yama.model;
+package com.yama.dto;
 
-public class DangKyLamThem {
-  private String maDK;
+public class JobEntryFormDto {
   private String maNV;
   private String hoTen;
   private String gioiTinh;
   private int capBac;
-  private ViecLam maVL;
+  private String maVL;
   private int soNgayCong;
   private int tongTien;
 
-  public DangKyLamThem() {}
+  public JobEntryFormDto() {}
 
-  public DangKyLamThem(String maDK, String maNV, String hoTen, String gioiTinh, int capBac, ViecLam maVL, int soNgayCong, int tongTien) {
-    this.maDK = maDK;
+  public JobEntryFormDto(String maNV, String hoTen, String gioiTinh, int capBac, String maVL, int soNgayCong, int tongTien) {
     this.maNV = maNV;
     this.hoTen = hoTen;
     this.gioiTinh = gioiTinh;
@@ -21,14 +19,6 @@ public class DangKyLamThem {
     this.maVL = maVL;
     this.soNgayCong = soNgayCong;
     this.tongTien = tongTien;
-  }
-
-  public String getMaDK() {
-    return maDK;
-  }
-
-  public void setMaDK(String maDK) {
-    this.maDK = maDK;
   }
 
   public String getMaNV() {
@@ -63,11 +53,11 @@ public class DangKyLamThem {
     this.capBac = capBac;
   }
 
-  public ViecLam getMaVL() {
+  public String getMaVL() {
     return maVL;
   }
 
-  public void setMaVL(ViecLam maVL) {
+  public void setMaVL(String maVL) {
     this.maVL = maVL;
   }
 
@@ -89,9 +79,8 @@ public class DangKyLamThem {
 
   @Override
   public String toString() {
-    return "DangKyLamThem{" +
-            "maDK='" + maDK + '\'' +
-            ", maNV='" + maNV + '\'' +
+    return "JobEntryFormDto{" +
+            "maNV='" + maNV + '\'' +
             ", hoTen='" + hoTen + '\'' +
             ", gioiTinh='" + gioiTinh + '\'' +
             ", capBac=" + capBac +

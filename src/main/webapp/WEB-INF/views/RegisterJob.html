@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>List Job Entries</title>
   <link rel="stylesheet" th:href="@{/static/css/bulma.css}">
-  <link rel="shortcut icon" th:href="@{/static/icon/favicon.ico}" type="img/favicon.ico">
+  <link rel="shortcut icon " th:href="@{/static/icon/favicon.ico}" type="img/favicon.ico">
 </head>
 <body>
 <div class="tabs is-centered">
@@ -19,26 +19,26 @@
 <div class="hero is-align-items-center is-justify-content-start mt-6">
   <h1 class="title is-3">Đăng ký việc làm</h1>
 
-  <form class="box">
+  <form class="box" method="post" th:action="@{/registerJob}">
     <div class="field">
-      <label class="label">Mã nhân viên</label>
+      <label class="label" for="maNV">Mã nhân viên</label>
       <div class="control">
-        <input class="input" type="text" placeholder="e.g. NV001">
+        <input class="input" type="text" name="maNV" id="maNV" placeholder="e.g. NV001">
       </div>
     </div>
 
     <div class="field">
-      <label class="label">Họ và tên</label>
+      <label class="label" for="hoTen">Họ và tên</label>
       <div class="control">
-        <input class="input" type="password" placeholder="e.g. John Doe">
+        <input class="input" type="password" name="hoTen" id="hoTen" placeholder="e.g. John Doe">
       </div>
     </div>
 
     <div class="field">
-      <label class="label">Giới tính</label>
+      <label class="label" for="gioiTinh">Giới tính</label>
       <div class="control">
         <div class="select is-fullwidth">
-          <select name="gender" id="gender">
+          <select name="gioiTinh" id="gioiTinh">
             <option value="Nam">Nam</option>
             <option value="Nữ">Nữ</option>
           </select>
@@ -47,10 +47,10 @@
     </div>
 
     <div class="field">
-      <label class="label">Cấp bậc</label>
+      <label class="label" for="level">Cấp bậc</label>
       <div class="control">
         <div class="select is-fullwidth">
-          <select name="level" id="level">
+          <select name="capBac" id="level">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -61,25 +61,25 @@
     </div>
 
     <div class="field">
-      <label class="label">Mã việc làm</label>
+      <label class="label" for="maVL">Mã việc làm</label>
       <div class="control">
-        <input class="input" type="select" placeholder="e.g. VL001">
+        <input class="input" type="text" name="maVL" id="maVL" placeholder="e.g. VL001">
       </div>
       <p class="help is-danger"></p>
     </div>
 
     <div class="field">
-      <label class="label">Số ngày công</label>
+      <label class="label" for="soNgayCong">Số ngày công</label>
       <div class="control">
-        <input class="input" type="number" placeholder="1">
+        <input class="input" type="number" name="soNgayCong" id="soNgayCong" placeholder="1">
       </div>
       <p class="help is-danger"></p>
     </div>
 
     <div class="field">
-      <label class="label">Tổng tiền</label>
+      <label class="label" for="tongTien">Tổng tiền</label>
       <div class="control">
-        <input class="input" type="number" placeholder="0 VND" value="0" readonly>
+        <input class="input" type="number" name="tongTien" id="tongTien" placeholder="0 VND" value="0" readonly>
       </div>
     </div>
 

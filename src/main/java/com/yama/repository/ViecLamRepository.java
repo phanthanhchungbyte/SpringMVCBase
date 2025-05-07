@@ -1,4 +1,7 @@
 package com.yama.repository;
 
-public class ViecLamRepository {
+import com.yama.model.ViecLam;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ViecLamRepository extends JpaRepository<ViecLam, String> {
 }

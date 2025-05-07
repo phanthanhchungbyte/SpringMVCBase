@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+                 http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
+                 version="2.1">
+
+    <entity class="com.yama.model.ViecLam" access="PROPERTY">
+        <table name="viec_lam"/>
+        <attributes>
+            <id name="maVL">
+                <column name="ma_vl" length="32"/>
+                <generated-value generator="com.yama.generator.JobIdGenerator"/>
+            </id>
+            <basic name="moTa">
+                <column name="mo_ta" length="255"/>
+            </basic>
+            <basic name="duAn">
+                <column name="du_an" length="100"/>
+            </basic>
+            <basic name="ngonNgu">
+                <column name="ngon_ngu" length="50"/>
+            </basic>
+            <basic name="ngayBD">
+                <column name="ngay_bd"/>
+            </basic>
+            <basic name="ngayKT">
+                <column name="ngay_kt"/>
+            </basic>
+            <basic name="tongNgayCong">
+                <column name="tong_ngay_cong"/>
+            </basic>
+            <basic name="trangThai">
+                <column name="trang_thai" length="50"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.yama.model.DangKyLamThem" access="PROPERTY">
+        <table name="dang_ky_lam_them"/>
+        <attributes>
+            <id name="maDK">
+                <column name="MaDK" length="32"/>
+                <generated-value generator="com.yama.generator.JobEntryIdGenerator"/>
+            </id>
+            <basic name="maNV">
+                <column name="MaNV" length="255"/>
+            </basic>
+            <basic name="hoTen">
+                <column name="HoTen" length="100"/>
+            </basic>
+            <basic name="gioiTinh">
+                <column name="GioiTinh" length="50"/>
+            </basic>
+            <basic name="capBac">
+                <column name="CapBac"/>
+            </basic>
+            <basic name="soNgayCong">
+                <column name="SoNgayCong"/>
+            </basic>
+            <basic name="tongTien">
+                <column name="TongTien"/>
+            </basic>
+            <many-to-one name="maVL">
+                <join-column name="MaVL"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

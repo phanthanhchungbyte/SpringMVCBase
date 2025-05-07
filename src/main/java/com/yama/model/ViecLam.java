@@ -92,4 +92,18 @@ public class ViecLam {
   public void setTrangThai(String trangThai) {
     this.trangThai = trangThai;
   }
+
+  @Override
+  public String toString() {
+    return "ViecLam{" +
+            "maVL='" + maVL + '\'' +
+            ", moTa='" + moTa + '\'' +
+            ", duAn='" + duAn + '\'' +
+            ", ngonNgu='" + ngonNgu + '\'' +
+            ", ngayBD=" + ngayBD +
+            ", ngayKT=" + ngayKT +
+            ", tongNgayCong=" + tongNgayCong +
+            ", trangThai='" + trangThai + '\'' +
+            '}';
+  }
 }

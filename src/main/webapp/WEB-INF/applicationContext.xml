@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xsi:schemaLocation="
          http://www.springframework.org/schema/beans
-         http://www.springframework.org/schema/beans/spring-beans.xsd">
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/data/jpa
+         http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
+        >
 
     <!--  Datasource  -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -13,15 +17,13 @@
         <property name="password" value="hansniemann@GOAT" />
     </bean>
 
-    <!--  Hibernate properties  -->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="mappingResources">
-            <list>
-                <value>AllMapping.hbm.xml</value>
-            </list>
+        <property name="packagesToScan" value="com.yama.model"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
         </property>
-        <property name="hibernateProperties">
+        <property name="jpaProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
@@ -30,9 +32,16 @@
         </property>
     </bean>
 
+    <!--  JPA Transaction Manager  -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
     <!-- Registering repositories -->
-    <bean id="viecLamRepository" class="com.yama.repository.ViecLamRepository" />
-    <bean id="dangKyLamThemRepository" class="com.yama.repository.DangKyLamThemRepository" />
+    <jpa:repositories base-package="com.yama.repository"
+                      entity-manager-factory-ref="entityManagerFactory"
+                      transaction-manager-ref="transactionManager"/>
+
 
     <!-- Registering services, inject repository -->
     <bean id="vieclamService" class="com.yama.service.ViecLamService">
@@ -41,5 +50,6 @@
 
     <bean id="dangKyLamThemService" class="com.yama.service.DangKyLamThemService">
         <constructor-arg ref="dangKyLamThemRepository" />
+        <constructor-arg ref="viecLamRepository" />
     </bean>
 </beans>

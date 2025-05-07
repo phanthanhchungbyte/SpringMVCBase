@@ -15,7 +15,7 @@
     <mvc:annotation-driven/>
 
     <!-- Scan only the controller package for annotations -->
-    <context:component-scan base-package="com.yama.controller" />
+    <context:component-scan base-package="com.yama" />
 
     <!-- Specify Spring to serve static resources from the static folder -->
     <mvc:resources mapping="/static/**" location="/static/" />
