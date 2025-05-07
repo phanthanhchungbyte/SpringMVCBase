@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Job Entries</title>
+  <link rel="stylesheet" th:href="@{/static/css/bulma.css}">
+  <link rel="shortcut icon" th:href="@{/static/icon/favicon.ico}" type="img/favicon.ico">
+</head>
+<body>
+<div class="tabs is-centered">
+  <ul>
+    <li><a th:href="@{/}">Index page</a></li>
+    <li><a th:href="@{/entries}">Job Entries</a></li>
+    <li class="is-active"><a th:href="@{/edit}">Edit</a></li>
+  </ul>
+</div>
+
+<div class="hero is-align-items-center is-justify-content-start mt-6">
+  <h1 class="title is-3">Bảng việc làm</h1>
+
+  <form class="box">
+    <div class="field">
+      <label class="label">Mã nhân viên</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="e.g. NV001">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Họ và tên</label>
+      <div class="control">
+        <input class="input" type="password" placeholder="e.g. John Doe">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Giới tính</label>
+      <div class="control">
+        <div class="select is-fullwidth">
+          <select name="gender" id="gender">
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Cấp bậc</label>
+      <div class="control">
+        <div class="select is-fullwidth">
+          <select name="level" id="level">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+      </div>
+      <p class="help is-danger"></p>
+    </div>
+
+    <div class="field">
+      <label class="label">Mã việc làm</label>
+      <div class="control">
+        <input class="input" type="select" placeholder="e.g. VL001">
+      </div>
+      <p class="help is-danger"></p>
+    </div>
+
+    <div class="field">
+      <label class="label">Số ngày công</label>
+      <div class="control">
+        <input class="input" type="number" placeholder="1">
+      </div>
+      <p class="help is-danger"></p>
+    </div>
+
+    <div class="field">
+      <label class="label">Tổng tiền</label>
+      <div class="control">
+        <input class="input" type="number" placeholder="0 VND" value="0" readonly>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary is-fullwidth mt-5">Đăng ký</button>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>

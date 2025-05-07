@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/orm/hbm">
+    <class name="com.yama.model.ViecLam" table="viec_lam">
+        <id name="maVL" column="MaVL">
+            <generator class="com.yama.generator.JobIdGenerator" />
+        </id>
+        <property name="moTa" column="MoTa"/>
+        <property name="duAn" column="DuAn"/>
+        <property name="ngonNgu" column="NgonNgu"/>
+        <property name="ngayBD" column="NgayBD"/>
+        <property name="ngayKT" column="NgayKT"/>
+        <property name="tongNgayCong" column="TongNgayCong"/>
+        <property name="trangThai" column="TrangThai"/>
+    </class>
+
+    <class name="com.yama.model.DangKyLamThem" table="dang_ky_lam_them">
+        <id name="maDK" column="MaDK">
+            <generator class="com.yama.generator.JobEntryIdGenerator" />
+        </id>
+        <property name="maNV" column="MaNV"/>
+        <property name="hoTen" column="HoTen"/>
+        <property name="gioiTinh" column="GioiTinh"/>
+        <property name="capBac" column="CapBac"/>
+        <!-- Foreign key to ViecLam model -->
+        <many-to-one name="maVL" class="com.yama.model.ViecLam" column="MaVL"/>
+        <property name="soNgayCong" column="SoNgayCong"/>
+        <property name="tongTien" column="TongTien"/>
+    </class>
+</hibernate-mapping>
